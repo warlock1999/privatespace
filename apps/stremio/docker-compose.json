@@ -1,0 +1,21 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "stremio",
+      "image": "stremio/server:latest",
+      "internalPort": 11470,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/stremio",
+          "containerPath": "/root/.stremio-server"
+        }
+      ],
+      "environment": {
+        "NODE_ENV": "production"
+      },
+      "restart": "unless-stopped"
+    }
+  ]
+}

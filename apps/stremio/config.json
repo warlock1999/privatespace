@@ -1,0 +1,36 @@
+{
+  "name": "Stremio",
+  "id": "stremio",
+  "available": true,
+  "short_desc": "A modern media center for streaming movies and shows.",
+  "author": "Stremio",
+  "port": 11470,
+  "categories": [
+    "media",
+    "streaming",
+    "entertainment"
+  ],
+  "description": "Stremio is a media center that allows users to stream movies, TV shows, series, and other media content with support for add-ons from various sources.",
+  "tipi_version": 2,
+  "version": "4.4",
+  "source": "https://github.com/Stremio/stremio-server",
+  "website": "https://www.stremio.com",
+  "exposable": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1743094740000,
+  "updated_at": 1743094740000,
+  "dynamic_config": false,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Node Environment",
+      "placeholder": "production",
+      "required": true,
+      "env_variable": "NODE_ENV"
+    }
+  ],
+  "$schema": "../app-info-schema.json"
+}
