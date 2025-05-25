@@ -6,9 +6,7 @@
   "author": "Stremio",
   "port": 11470,
   "categories": [
-    "media",
-    "streaming",
-    "entertainment"
+    "media"
   ],
   "description": "Stremio is a media center that allows users to stream movies, TV shows, series, and other media content with support for add-ons from various sources.",
   "tipi_version": 2,
@@ -20,8 +18,8 @@
     "arm64",
     "amd64"
   ],
-  "created_at": 1743095520000,
-  "updated_at": 1743095520000,
+  "created_at": 1743095880000,
+  "updated_at": 1743095880000,
   "dynamic_config": false,
   "form_fields": [
     {
