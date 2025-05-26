@@ -2,19 +2,30 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "name": "stremio",
+      "name": "stremio-streaming-server",
       "image": "sleeyax/stremio-streaming-server:latest",
       "internalPort": 11470,
       "isMain": true,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/stremio",
-          "containerPath": "/root/.stremio-server"
+          "hostPath": "${APP_DATA_DIR}/data/stremio/cache",
+          "containerPath": "/cache"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/stremio/downloads",
+          "containerPath": "/downloads"
         }
       ],
       "environment": {
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
         "FIX_UNSUPPORTED_MEDIA": "1",
+        "CACHE_DIR": "/cache",
+        "DOWNLOAD_DIR": "/downloads",
+        "CACHE_TTL": "604800",
+        "CACHE_MAX_SIZE": "1073741824",
+        "LOG_LEVEL": "info",
+        "TRANSCODING_ENABLED": "false",
+        "AUTH_ENABLED": "false"
       },
       "restart": "unless-stopped"
     }
