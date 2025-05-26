@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "stremio",
-      "image": "stremio/server:latest",
+      "image": "sleeyax/stremio-streaming-server:latest",
       "internalPort": 11470,
       "isMain": true,
       "volumes": [
@@ -14,6 +14,7 @@
       ],
       "environment": {
         "NODE_ENV": "production"
+        "FIX_UNSUPPORTED_MEDIA": "1",
       },
       "restart": "unless-stopped"
     }
