@@ -14,14 +14,6 @@
 
   - `apps.test.ts`: Test suite for validating apps
 
-## Getting Started
-
-This repository is intended to serve as a template for creating your own app store. Follow these steps to get started:
-
-1. Click the "Use this template" button to create a new repository based on this template
-2. Customize the apps or add your own app folders in the `apps/` directory
-3. Test your app store by using it with Runtipi
-
 ## Documentation
 
 For detailed instructions on creating your own app store, please refer to the official guide:
