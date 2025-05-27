@@ -5,14 +5,42 @@
   "short_desc": "A standalone Stremio streaming server for remote connections.",
   "author": "sleeyax",
   "port": 11470,
-  "categories": ["media", "streaming"],
-  "description": "The Stremio Streaming Server allows you to stream media content remotely. It includes FFmpeg for transcoding and supports HTTPS and media error fixes.",
-  "tipi_version": ">=3.2.0",
-  "version": "1.0.0",
+  "categories": [
+    "media"
+  ],
+  "description": "Stremio Streaming Server allows users to stream movies, TV shows, and other media content remotely, with support for various add-ons.",
+  "tipi_version": 2,
+  "version": "latest",
   "source": "https://github.com/sleeyax/stremio-streaming-server",
+  "website": "https://www.stremio.com",
   "exposable": true,
-  "supported_architectures": ["amd64", "arm64"],
-  "website": "https://github.com/sleeyax/stremio-streaming-server",
-  "created_at": "2025-05-27",
-  "updated_at": "2025-05-27"
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1743095880000,
+  "updated_at": 1743095880000,
+  "dynamic_config": false,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Node Environment",
+      "placeholder": "production",
+      "required": true,
+      "env_variable": "NODE_ENV"
+    },
+    {
+      "type": "checkbox",
+      "label": "Force HTTPS",
+      "required": false,
+      "env_variable": "FORCE_HTTPS"
+    },
+    {
+      "type": "checkbox",
+      "label": "Fix Unsupported Media",
+      "required": false,
+      "env_variable": "FIX_UNSUPPORTED_MEDIA"
+    }
+  ],
+  "$schema": "../app-info-schema.json"
 }

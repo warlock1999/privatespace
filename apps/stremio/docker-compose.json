@@ -1,25 +1,23 @@
 {
-  "version": "3.8",
-  "services": {
-    "stremio-streaming-server": {
-      "image": "sleeyax/stremio-streaming-server:1.0.0", 
-      "container_name": "stremio-streaming-server",
-      "ports": [
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "stremio",
+      "image": "sleeyax/stremio-streaming-server:latest",
+      "internalPort": 11470,
+      "isMain": true,
+      "volumes": [
         {
-          "published": "${APP_PORT}",
-          "target": 11470
+          "hostPath": "${APP_DATA_DIR}/data/stremio",
+          "containerPath": "/root/.stremio-server"
         }
       ],
-      "volumes": [
-        "${APP_DATA_DIR}/stremio-streaming-server:/root/.stremio-server"
-      ],
       "environment": {
-        "FORCE_HTTPS": "true",
-        "FIX_UNSUPPORTED_MEDIA": "true"
+        "FORCE_HTTPS": "1",
+        "FIX_UNSUPPORTED_MEDIA": "1",
+        "NODE_ENV": "production"
       },
-      "networks": [
-        "tipi_main_network"
-      ],
+      "restart": "unless-stopped",
       "healthcheck": {
         "test": ["CMD", "curl", "-f", "http://localhost:11470"],
         "interval": "30s",
@@ -27,10 +25,5 @@
         "retries": 3
       }
     }
-  },
-  "networks": {
-    "tipi_main_network": {
-      "external": true
-    }
-  }
+  ]
 }
