@@ -1,3 +1,7 @@
+##
+- Tested image `https://github.com/sleeyax/stremio-streaming-server` in RunTipi since it was not available in the RunTipi Appstore.
+
+- If you need to stream content online with HTTPS, you can add my App Store or create your own App Store and import the apps directory on your github App Store.
 
 ## Repository Structure
 
