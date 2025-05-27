@@ -2,89 +2,17 @@
   "name": "Stremio Streaming Server",
   "id": "stremio-streaming-server",
   "available": true,
-  "short_desc": "A lightweight streaming server for Stremio media center.",
+  "short_desc": "A standalone Stremio streaming server for remote connections.",
   "author": "sleeyax",
   "port": 11470,
-  "categories": [
-    "media",
-    "streaming"
-  ],
-  "description": "Stremio Streaming Server is a lightweight, customizable server for Stremio, enabling streaming of movies, TV shows, and other media content via torrents and add-ons. It supports caching, transcoding, and CORS for flexible deployment.",
-  "tipi_version": 2,
-  "version": "latest",
+  "categories": ["media", "streaming"],
+  "description": "The Stremio Streaming Server allows you to stream media content remotely. It includes FFmpeg for transcoding and supports HTTPS and media error fixes.",
+  "tipi_version": ">=3.2.0",
+  "version": "1.0.0",
   "source": "https://github.com/sleeyax/stremio-streaming-server",
-  "website": "https://www.stremio.com",
   "exposable": true,
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ],
-  "created_at": 1743095880000,
-  "updated_at": 1743095880000,
-  "dynamic_config": true,
-  "form_fields": [
-    {
-      "type": "text",
-      "label": "Node Environment",
-      "placeholder": "production",
-      "required": true,
-      "env_variable": "NODE_ENV"
-    },
-    {
-      "type": "text",
-      "label": "Cache Directory",
-      "placeholder": "/cache",
-      "required": true,
-      "env_variable": "CACHE_DIR"
-    },
-    {
-      "type": "text",
-      "label": "Downloads Directory",
-      "placeholder": "/downloads",
-      "required": true,
-      "env_variable": "DOWNLOAD_DIR"
-    },
-    {
-      "type": "number",
-      "label": "Cache TTL (seconds)",
-      "placeholder": "604800",
-      "required": false,
-      "env_variable": "CACHE_TTL"
-    },
-    {
-      "type": "number",
-      "label": "Cache Max Size (bytes)",
-      "placeholder": "1073741824",
-      "required": false,
-      "env_variable": "CACHE_MAX_SIZE"
-    },
-    {
-      "type": "select",
-      "label": "Log Level",
-      "options": [
-        "debug",
-        "info",
-        "warn",
-        "error"
-      ],
-      "placeholder": "info",
-      "required": false,
-      "env_variable": "LOG_LEVEL"
-    },
-    {
-      "type": "boolean",
-      "label": "Enable Transcoding",
-      "placeholder": "false",
-      "required": false,
-      "env_variable": "TRANSCODING_ENABLED"
-    },
-    {
-      "type": "boolean",
-      "label": "Enable Authentication",
-      "placeholder": "false",
-      "required": false,
-      "env_variable": "AUTH_ENABLED"
-    }
-  ],
-  "$schema": "../app-info-schema.json"
+  "supported_architectures": ["amd64", "arm64"],
+  "website": "https://github.com/sleeyax/stremio-streaming-server",
+  "created_at": "2025-05-27",
+  "updated_at": "2025-05-27"
 }

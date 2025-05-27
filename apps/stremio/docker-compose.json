@@ -1,38 +1,36 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
-  "services": [
-    {
-      "name": "stremio-streaming-server",
-      "image": "sleeyax/stremio-streaming-server:latest",
-      "internalPort": 11470,
-      "isMain": true,
-      "volumes": [
+  "version": "3.8",
+  "services": {
+    "stremio-streaming-server": {
+      "image": "sleeyax/stremio-streaming-server:1.0.0", 
+      "container_name": "stremio-streaming-server",
+      "ports": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/stremio/cache",
-          "containerPath": "/cache"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/data/stremio/downloads",
-          "containerPath": "/downloads"
+          "published": "${APP_PORT}",
+          "target": 11470
         }
-
-        {
-          "hostPath": "${APP_DATA_DIR}/data/stremio/config.json",
-          "containerPath": "/app/config.json"
-       }
+      ],
+      "volumes": [
+        "${APP_DATA_DIR}/stremio-streaming-server:/root/.stremio-server"
       ],
       "environment": {
-        "NODE_ENV": "production",
-        "FIX_UNSUPPORTED_MEDIA": "1",
-        "CACHE_DIR": "/cache",
-        "DOWNLOAD_DIR": "/downloads",
-        "CACHE_TTL": "604800",
-        "CACHE_MAX_SIZE": "1073741824",
-        "LOG_LEVEL": "info",
-        "TRANSCODING_ENABLED": "false",
-        "AUTH_ENABLED": "false"
+        "FORCE_HTTPS": "true",
+        "FIX_UNSUPPORTED_MEDIA": "true"
       },
-      "restart": "unless-stopped"
+      "networks": [
+        "tipi_main_network"
+      ],
+      "healthcheck": {
+        "test": ["CMD", "curl", "-f", "http://localhost:11470"],
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3
+      }
     }
-  ]
+  },
+  "networks": {
+    "tipi_main_network": {
+      "external": true
+    }
+  }
 }

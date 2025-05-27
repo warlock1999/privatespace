@@ -1,30 +1,18 @@
-# Stremio
+# Stremio Streaming Server
 
-## Overview
-Stremio is a modern media center that allows users to stream movies, TV shows, series, and other media content. It supports add-ons for accessing content from various sources and provides a user-friendly interface for organizing and watching media.
+The Stremio Streaming Server is a standalone server for streaming media content remotely. It is based on the Stremio platform and includes the following features:
+
+- **FFmpeg Integration:** Supports media transcoding for a seamless streaming experience.
+- **HTTPS Support:** Ensures secure connections when used with a reverse proxy.
+- **Error Fixes:** Attempts to resolve unsupported media errors automatically.
 
 ## Features
-- Stream content from multiple sources via add-ons.
-- Cross-platform support (Web, Desktop, Mobile).
-- Personalized watchlists and recommendations.
-- Supports local media playback and torrent streaming.
-
-## Setup Instructions
-1. Ensure Docker and Docker Compose are installed.
-2. Place this folder in your `apps` directory.
-3. Run `docker-compose up -d` in the `stremio/metadata` directory.
-4. Access Stremio at `http://<your-server-ip>:11470`.
+- Lightweight and efficient, built on Alpine Linux.
+- Persistent storage for configuration files.
+- Automatic updates for the latest Stremio server versions.
 
 ## Requirements
-- Docker
-- Internet connection for add-ons and streaming
-- Persistent storage for user data
+- Runtipi version 3.2.0 or higher.
+- A reverse proxy (e.g., Traefik) for HTTPS support.
 
-## Notes
-- The Stremio server runs on port `11470`. Ensure this port is open if accessing remotely.
-- Use the Stremio desktop or mobile app for the best experience, or access via the web interface.
-- Add-ons can be installed through the Stremio interface for additional content sources.
-
-## Links
-- [Official Stremio Website](https://www.stremio.com/)
-- [Stremio GitHub](https://github.com/Stremio/stremio-server)
+For more information, visit the [GitHub repository](https://github.com/sleeyax/stremio-streaming-server).
