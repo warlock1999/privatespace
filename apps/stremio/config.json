@@ -30,13 +30,13 @@
       "env_variable": "NODE_ENV"
     },
     {
-      "type": "checkbox",
+      "type": "boolean",
       "label": "Force HTTPS",
       "required": false,
       "env_variable": "FORCE_HTTPS"
     },
     {
-      "type": "checkbox",
+      "type": "boolean",
       "label": "Fix Unsupported Media",
       "required": false,
       "env_variable": "FIX_UNSUPPORTED_MEDIA"
