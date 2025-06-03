@@ -3,8 +3,8 @@
   "id": "sickgear",
   "available": true,
   "short_desc": "A web-based application for managing Sickbeard and CouchPotato installations.",
-  "author": "Your Name",
-  "port": 8081,
+  "author": "none",
+  "port": 8080,
   "categories": [
     "media"
   ],
