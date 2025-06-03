@@ -6,8 +6,7 @@
   "author": "Shoko Team",
   "port": 8111,
   "categories": [
-    "media",
-    "anime"
+    "media"
   ],
   "description": "Shoko Server is an anime management tool that organizes your anime collection, integrates with AniDB, and supports media streaming and tracking.",
   "tipi_version": 2,
