@@ -1,0 +1,29 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "shoko-server",
+      "image": "shokoserver/shoko-server:latest",
+      "internalPort": 8111,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/shoko-server",
+          "containerPath": "/home/shoko/.shoko"
+        }
+      ],
+      "environment": {
+        "SHOKO_PORT": "8111",
+        "SHOKO_LANG": "en",
+        "SHOKO_UPDATE_CHECK": "true"
+      },
+      "restart": "unless-stopped",
+      "healthcheck": {
+        "test": ["CMD", "curl", "-f", "http://localhost:8111/api/v3/Init/Status"],
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3
+      }
+    }
+  ]
+}
