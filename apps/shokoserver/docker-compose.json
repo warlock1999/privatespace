@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "shoko-server",
-      "image": "shokoserver/shoko-server:latest",
+      "image": "shokoserver/shoko-server:5.1.0",  // Specify a version instead of latest
       "internalPort": 8111,
       "isMain": true,
       "volumes": [
