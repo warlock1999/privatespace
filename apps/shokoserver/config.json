@@ -9,8 +9,8 @@
     "media"
   ],
   "description": "Shoko Server is an anime management tool that organizes your anime collection, integrates with AniDB, and supports media streaming and tracking.",
-  "tipi_version": 1,
-  "version": "1.0.0",
+  "tipi_version": 2,
+  "version": "latest",
   "source": "https://github.com/ShokoAnime/ShokoServer",
   "website": "https://shokoanime.com",
   "exposable": true,
@@ -18,8 +18,8 @@
     "arm64",
     "amd64"
   ],
-  "created_at": 1743095880000,  // Update this timestamp if necessary
-  "updated_at": 1743095880000,  // Update this timestamp if necessary
+  "created_at": 1743095880000,
+  "updated_at": 1743095880000,
   "dynamic_config": false,
   "form_fields": [
     {
