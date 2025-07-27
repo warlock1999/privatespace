@@ -7,7 +7,7 @@
   "port": 81,
   "categories": ["network", "security"],
   "description": "A reverse proxy management system with a simple web UI, providing free SSL support via Let's Encrypt.",
-  "tipi_version": "1.0.0",
+  "tipi_version": 1, // Changed from "1.0.0" (string) to 1 (number) to match schema
   "version": "latest",
   "source": "https://github.com/NginxProxyManager/nginx-proxy-manager",
   "website": "https://nginxproxymanager.com",
