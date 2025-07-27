@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "shoko-server",
-      "image": "shokoanime/shokoserver:5.1.0",
+      "image": "shokoanime/shokoserver:latest",
       "internalPort": 8111,
       "isMain": true,
       "volumes": [

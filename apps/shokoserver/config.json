@@ -43,5 +43,5 @@
       "env_variable": "SHOKO_UPDATE_CHECK"
     }
   ],
-  "$schema": "../app-info-schema.json"
+  "$schema": "./app-info-schema.json"
 }

@@ -1,0 +1,65 @@
+{
+  "services": [
+    {
+      "name": "nginx-proxy-manager",
+      "image": "jc21/nginx-proxy-manager:latest",
+      "internalPort": 81,
+      "isMain": true,
+      "ports": [
+        {
+          "hostPort": 8080,
+          "containerPort": 8080
+        },
+        {
+          "hostPort": 8443,
+          "containerPort": 8443
+        },
+        {
+          "hostPort": 81,
+          "containerPort": 81
+        }
+      ],
+      "environment": {
+        "DB_MYSQL_HOST": "mariadb",
+        "DB_MYSQL_PORT": "3306",
+        "DB_MYSQL_USER": "npm",
+        "DB_MYSQL_PASSWORD": "npm",
+        "DB_MYSQL_NAME": "npm",
+        "DISABLE_IPV6": "true"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/nginx-proxy-manager/data",
+          "containerPath": "/data",
+          "readOnly": false
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/nginx-proxy-manager/letsencrypt",
+          "containerPath": "/etc/letsencrypt",
+          "readOnly": false
+        }
+      ],
+      "depends_on": [
+        "mariadb"
+      ]
+    },
+    {
+      "name": "mariadb",
+      "image": "jc21/mariadb-aria:latest",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "npm",
+        "MYSQL_DATABASE": "npm",
+        "MYSQL_USER": "npm",
+        "MYSQL_PASSWORD": "npm",
+        "MARIADB_AUTO_UPGRADE": "1"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/nginx-proxy-manager/mysql",
+          "containerPath": "/var/lib/mysql",
+          "readOnly": false
+        }
+      ]
+    }
+  ]
+}

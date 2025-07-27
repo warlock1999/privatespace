@@ -1,0 +1,39 @@
+{
+  "id": "nginx-proxy-manager",
+  "name": "Nginx Proxy Manager",
+  "description": "A reverse proxy management system with a simple web UI, providing free SSL support via Let's Encrypt.",
+  "version": "latest",
+  "port": 81,
+  "categories": ["proxy", "network", "web"],
+  "form_fields": [
+    {
+      "id": "DB_MYSQL_USER",
+      "label": "MySQL User",
+      "type": "text",
+      "env_variable": "DB_MYSQL_USER",
+      "default": "npm"
+    },
+    {
+      "id": "DB_MYSQL_PASSWORD",
+      "label": "MySQL Password",
+      "type": "password",
+      "env_variable": "DB_MYSQL_PASSWORD",
+      "default": "npm"
+    },
+    {
+      "id": "DB_MYSQL_NAME",
+      "label": "MySQL Database Name",
+      "type": "text",
+      "env_variable": "DB_MYSQL_NAME",
+      "default": "npm"
+    },
+    {
+      "id": "MYSQL_ROOT_PASSWORD",
+      "label": "MySQL Root Password",
+      "type": "password",
+      "env_variable": "MYSQL_ROOT_PASSWORD",
+      "default": "npm"
+    }
+  ],
+  "compose_file": "docker-compose.json"
+}
