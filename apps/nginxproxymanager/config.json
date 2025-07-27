@@ -7,7 +7,7 @@
   "port": 81,
   "categories": ["network", "security"],
   "description": "A reverse proxy management system with a simple web UI, providing free SSL support via Let's Encrypt.",
-  "tipi_version": 1, // Changed from "1.0.0" (string) to 1 (number) to match schema
+  "tipi_version": 1,
   "version": "latest",
   "source": "https://github.com/NginxProxyManager/nginx-proxy-manager",
   "website": "https://nginxproxymanager.com",
@@ -15,7 +15,7 @@
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1743095880000,
   "updated_at": 1743095880000,
-  "dynamic_config": false,
+  "dynamic_config": true, // Adjusted to true for dynamic compose
   "form_fields": [
     {
       "type": "text",
