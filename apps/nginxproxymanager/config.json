@@ -1,10 +1,15 @@
 {
-  "id": "nginx-proxy-manager",
+  "id": "nginxproxymanager",
   "name": "Nginx Proxy Manager",
   "description": "A reverse proxy management system with a simple web UI, providing free SSL support via Let's Encrypt.",
+  "short_desc": "Manage reverse proxies with a user-friendly interface and Let's Encrypt SSL.",
   "version": "latest",
+  "tipi_version": 1,
   "port": 81,
-  "categories": ["proxy", "network", "web"],
+  "categories": ["network", "security"],
+  "author": "jc21",
+  "source": "https://github.com/NginxProxyManager/nginx-proxy-manager",
+  "available": true,
   "form_fields": [
     {
       "id": "DB_MYSQL_USER",
