@@ -6,7 +6,7 @@
   "version": "latest",
   "tipi_version": "1.0.0", // Changed from number (1) to string to match typical version formats
   "port": 81,
-  "categories": ["network", "security"], // Valid categories; no change needed
+  "categories": ["security"], // Valid categories; no change needed
   "author": "jc21",
   "source": "https://github.com/NginxProxyManager/nginx-proxy-manager",
   "available": true,
@@ -40,5 +40,5 @@
       "default": "npm"
     }
   ],
-  "compose_file": "docker-compose.yml" // Changed from "docker-compose.json" to match test expectation
+  "compose_file": "docker-compose.json" // Changed from "docker-compose.json" to match test expectation
 }
