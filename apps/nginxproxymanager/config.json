@@ -1,44 +1,48 @@
 {
-  "id": "nginxproxymanager",
   "name": "Nginx Proxy Manager",
-  "description": "A reverse proxy management system with a simple web UI, providing free SSL support via Let's Encrypt.",
-  "short_desc": "Manage reverse proxies with a user-friendly interface and Let's Encrypt SSL.",
-  "version": "latest",
-  "tipi_version": "1.0.0", // Changed from number (1) to string to match typical version formats
-  "port": 81,
-  "categories": ["security"], // Valid categories; no change needed
-  "author": "jc21",
-  "source": "https://github.com/NginxProxyManager/nginx-proxy-manager",
+  "id": "nginxproxymanager",
   "available": true,
+  "short_desc": "Manage reverse proxies with a user-friendly interface and Let's Encrypt SSL.",
+  "author": "jc21",
+  "port": 81,
+  "categories": ["network", "security"],
+  "description": "A reverse proxy management system with a simple web UI, providing free SSL support via Let's Encrypt.",
+  "tipi_version": "1.0.0",
+  "version": "latest",
+  "source": "https://github.com/NginxProxyManager/nginx-proxy-manager",
+  "website": "https://nginxproxymanager.com",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1743095880000,
+  "updated_at": 1743095880000,
+  "dynamic_config": false,
   "form_fields": [
     {
-      "id": "DB_MYSQL_USER",
+      "type": "text",
       "label": "MySQL User",
-      "type": "text",
-      "env_variable": "DB_MYSQL_USER",
-      "default": "npm"
+      "placeholder": "npm",
+      "required": true,
+      "env_variable": "DB_MYSQL_USER"
     },
     {
-      "id": "DB_MYSQL_PASSWORD",
+      "type": "password",
       "label": "MySQL Password",
-      "type": "password",
-      "env_variable": "DB_MYSQL_PASSWORD",
-      "default": "npm"
+      "required": true,
+      "env_variable": "DB_MYSQL_PASSWORD"
     },
     {
-      "id": "DB_MYSQL_NAME",
-      "label": "MySQL Database Name",
       "type": "text",
-      "env_variable": "DB_MYSQL_NAME",
-      "default": "npm"
+      "label": "MySQL Database Name",
+      "placeholder": "npm",
+      "required": true,
+      "env_variable": "DB_MYSQL_NAME"
     },
     {
-      "id": "MYSQL_ROOT_PASSWORD",
-      "label": "MySQL Root Password",
       "type": "password",
-      "env_variable": "MYSQL_ROOT_PASSWORD",
-      "default": "npm"
+      "label": "MySQL Root Password",
+      "required": true,
+      "env_variable": "MYSQL_ROOT_PASSWORD"
     }
   ],
-  "compose_file": "docker-compose.json" // Changed from "docker-compose.json" to match test expectation
+  "$schema": "../app-info-schema.json"
 }
