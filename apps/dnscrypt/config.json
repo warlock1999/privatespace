@@ -23,13 +23,6 @@
       "required": true,
       "env_variable": "SERVER_IP"
     },
-    {
-      "type": "text",
-      "label": "Domain Name",
-      "placeholder": "example.com",
-      "required": true,
-      "env_variable": "DOMAIN_NAME"
-    }
   ],
   "$schema": "../app-info-schema.json"
 }
