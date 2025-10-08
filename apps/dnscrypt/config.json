@@ -1,0 +1,54 @@
+{
+  "id": "dnscrypt-server",
+  "name": "DNSCrypt Server",
+  "description": "A DNSCrypt server providing encrypted DNS resolution.",
+  "version": "1.0.0",
+  "maintainer": "Your Name <your.email@example.com>",
+  "ports": [
+    {
+      "containerPort": 443,
+      "protocol": "udp"
+    },
+    {
+      "containerPort": 443,
+      "protocol": "tcp"
+    }
+  ],
+  "volumes": [
+    {
+      "hostPath": "${APP_DATA_DIR}/dnscrypt-server/keys",
+      "containerPath": "/opt/encrypted-dns/etc/keys"
+    }
+  ],
+  "restartPolicy": "unless-stopped",
+  "inputs": [
+    {
+      "name": "SERVER_IP",
+      "label": "Server IP Address",
+      "type": "text",
+      "default": "",
+      "placeholder": "Enter your server's public IP or hostname",
+      "validation": {
+        "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|$)){4}$|^([a-zA-Z0-9.-]+)$",
+        "message": "Please enter a valid IPv4 address or hostname"
+      }
+    },
+    {
+      "name": "DOMAIN_NAME",
+      "label": "Domain Name",
+      "type": "text",
+      "default": "example.com",
+      "placeholder": "Enter your domain name",
+      "validation": {
+        "pattern": "^[a-zA-Z0-9.-]+$",
+        "message": "Please enter a valid domain name"
+      }
+    }
+  ],
+  "healthcheck": {
+    "test": ["CMD-SHELL", "nc -z -w 1 localhost 443"],
+    "interval": "1m",
+    "timeout": "10s",
+    "retries": 3
+  }
+}

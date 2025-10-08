@@ -1,0 +1,24 @@
+{
+  "version": "3",
+  "services": {
+    "dnscrypt-server": {
+      "container_name": "dnscrypt-server",
+      "image": "jedisct1/dnscrypt-server:2.0.0",
+      "ports": [
+        "443:443/udp",
+        "443:443/tcp"
+      ],
+      "restart": "unless-stopped",
+      "volumes": [
+        "${APP_DATA_DIR}/dnscrypt-server/keys:/opt/encrypted-dns/etc/keys"
+      ],
+      "command": [
+        "init",
+        "-N",
+        "example.com",
+        "-E",
+        "${SERVER_IP}:443"
+      ]
+    }
+  }
+}
