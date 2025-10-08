@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "dnscrypt-server",
-      "image": "jedisct1/dnscrypt-server:2.0.0",
+      "image": "jedisct1/dnscrypt-server:latest",
       "internalPort": 443,
       "isMain": true,
       "ports": [

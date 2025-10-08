@@ -7,8 +7,8 @@
   "description": "DNSCrypt server for encrypted DNS resolution.",
   "tipi_version": 2,
   "version": "latest",
-  "source": "https://github.com/your-username/dnscrypt-server-runtipi-app",
-  "website": "https://github.com/your-username/dnscrypt-server-runtipi-app",
+  "source": "https://github.com/warlock1999/privatespace/apps/dnscrypt",
+  "website": "https://github.com/dnscrypt/dnscrypt-proxy/wiki/installation",
   "exposable": true,
   "supported_architectures": [
     "arm64",
