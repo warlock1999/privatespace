@@ -26,6 +26,11 @@
         "SERVER_IP": "${SERVER_IP}",
         "DOMAIN_NAME": "${DOMAIN_NAME}"
       },
+      "command": [
+        "sh",
+        "-c",
+        "if [ ! -f /opt/encrypted-dns/etc/keys/signed_provider.key ]; then dnscrypt-server init -N ${DOMAIN_NAME} -E ${SERVER_IP}:443; fi && dnscrypt-server start"
+      ],
       "restart": "unless-stopped",
       "healthcheck": {
         "test": ["CMD-SHELL", "nc -z -w 1 localhost 443"],
