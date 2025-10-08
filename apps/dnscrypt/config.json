@@ -1,59 +1,35 @@
 {
-  "id": "dnscrypt-server",
   "name": "DNSCrypt Server",
-  "description": "A DNSCrypt server providing encrypted DNS resolution.",
-  "version": "1.0.0",
-  "maintainer": "Your Name <your.email@example.com>",
+  "id": "dnscrypt-server",
   "available": true,
-  "tipi_version": ">= v3.2.0",
-  "short_desc": "DNSCrypt server for encrypted DNS",
+  "short_desc": "A DNSCrypt server providing encrypted DNS resolution.",
   "author": "Your Name",
+  "description": "DNSCrypt server for encrypted DNS resolution.",
+  "tipi_version": 2,
+  "version": "latest",
   "source": "https://github.com/your-username/dnscrypt-server-runtipi-app",
-  "ports": [
-    {
-      "containerPort": 443,
-      "protocol": "udp"
-    },
-    {
-      "containerPort": 443,
-      "protocol": "tcp"
-    }
+  "website": "https://github.com/your-username/dnscrypt-server-runtipi-app",
+  "exposable": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
   ],
-  "volumes": [
+  "dynamic_config": false,
+  "form_fields": [
     {
-      "hostPath": "${APP_DATA_DIR}/dnscrypt-server/keys",
-      "containerPath": "/opt/encrypted-dns/etc/keys"
-    }
-  ],
-  "restartPolicy": "unless-stopped",
-  "inputs": [
-    {
-      "name": "SERVER_IP",
+      "type": "text",
       "label": "Server IP Address",
-      "type": "text",
-      "default": "",
       "placeholder": "Enter your server's public IP or hostname",
-      "validation": {
-        "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|$)){4}$|^([a-zA-Z0-9.-]+)$",
-        "message": "Please enter a valid IPv4 address or hostname"
-      }
+      "required": true,
+      "env_variable": "SERVER_IP"
     },
     {
-      "name": "DOMAIN_NAME",
-      "label": "Domain Name",
       "type": "text",
-      "default": "example.com",
-      "placeholder": "Enter your domain name",
-      "validation": {
-        "pattern": "^[a-zA-Z0-9.-]+$",
-        "message": "Please enter a valid domain name"
-      }
+      "label": "Domain Name",
+      "placeholder": "example.com",
+      "required": true,
+      "env_variable": "DOMAIN_NAME"
     }
   ],
-  "healthcheck": {
-    "test": ["CMD-SHELL", "nc -z -w 1 localhost 443"],
-    "interval": "1m",
-    "timeout": "10s",
-    "retries": 3
-  }
+  "$schema": "../app-info-schema.json"
 }

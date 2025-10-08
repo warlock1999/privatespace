@@ -1,24 +1,38 @@
 {
-  "version": "3",
-  "services": {
-    "dnscrypt-server": {
-      "container_name": "dnscrypt-server",
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "dnscrypt-server",
       "image": "jedisct1/dnscrypt-server:2.0.0",
+      "internalPort": 443,
+      "isMain": true,
       "ports": [
-        "443:443/udp",
-        "443:443/tcp"
+        {
+          "containerPort": 443,
+          "protocol": "udp"
+        },
+        {
+          "containerPort": 443,
+          "protocol": "tcp"
+        }
       ],
-      "restart": "unless-stopped",
       "volumes": [
-        "${APP_DATA_DIR}/dnscrypt-server/keys:/opt/encrypted-dns/etc/keys"
+        {
+          "hostPath": "${APP_DATA_DIR}/dnscrypt-server/keys",
+          "containerPath": "/opt/encrypted-dns/etc/keys"
+        }
       ],
-      "command": [
-        "init",
-        "-N",
-        "${DOMAIN_NAME}",
-        "-E",
-        "${SERVER_IP}:443"
-      ]
+      "environment": {
+        "SERVER_IP": "${SERVER_IP}",
+        "DOMAIN_NAME": "${DOMAIN_NAME}"
+      },
+      "restart": "unless-stopped",
+      "healthcheck": {
+        "test": ["CMD-SHELL", "nc -z -w 1 localhost 443"],
+        "interval": "1m",
+        "timeout": "10s",
+        "retries": 3
+      }
     }
-  }
+  ]
 }
