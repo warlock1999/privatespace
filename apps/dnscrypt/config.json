@@ -4,6 +4,11 @@
   "description": "A DNSCrypt server providing encrypted DNS resolution.",
   "version": "1.0.0",
   "maintainer": "Your Name <your.email@example.com>",
+  "available": true,
+  "tipi_version": ">= v3.2.0",
+  "short_desc": "DNSCrypt server for encrypted DNS",
+  "author": "Your Name",
+  "source": "https://github.com/your-username/dnscrypt-server-runtipi-app",
   "ports": [
     {
       "containerPort": 443,

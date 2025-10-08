@@ -15,7 +15,7 @@
       "command": [
         "init",
         "-N",
-        "example.com",
+        "${DOMAIN_NAME}",
         "-E",
         "${SERVER_IP}:443"
       ]
