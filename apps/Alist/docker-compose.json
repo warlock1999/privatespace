@@ -17,9 +17,6 @@
       "volumes": [
         "/root/runtipi/app-data/alist/data:/opt/alist/data"
       ],
-      "networks": [
-        "default"
-      ],
       "security_opt": [
         "no-new-privileges:true"
       ],
