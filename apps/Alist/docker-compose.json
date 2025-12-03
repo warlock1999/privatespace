@@ -15,9 +15,6 @@
       "volumes": [
         "/root/runtipi/app-data/alist/data:/opt/alist/data"
       ],
-      "labels": {
-        "runtipi.app": "alist"
-      },
       "healthcheck": {
         "test": [
           "CMD",
