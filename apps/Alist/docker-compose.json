@@ -1,22 +1,33 @@
 {
-  "version": "3",
-  "services": {
-    "alist": {
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "alist",
       "image": "xhofe/alist:latest",
-      "container_name": "alist",
-      "restart": "unless-stopped",
-      "ports": [
-        "5244:5244"
-      ],
+      "internalPort": 5244,
+      "isMain": true,
       "volumes": [
-        "./data:/data",
-        "./config:/config"
+        {
+          "hostPath": "${APP_DATA_DIR}/data/alist",
+          "containerPath": "/data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/config/alist",
+          "containerPath": "/config"
+        }
       ],
-      "environment": [
-        "ADMIN_PASSWORD=${ADMIN_PASSWORD}",
-        "PUID=${PUID}",
-        "PGID=${PGID}"
-      ]
+      "environment": {
+        "ADMIN_PASSWORD": "",
+        "PUID": "1000",
+        "PGID": "1000"
+      },
+      "restart": "unless-stopped",
+      "healthcheck": {
+        "test": ["CMD", "curl", "-f", "http://localhost:5244"],
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3
+      }
     }
-  }
+  ]
 }
