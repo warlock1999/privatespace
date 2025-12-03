@@ -1,48 +1,52 @@
 {
-  "name": "AList",
-  "id": "alist",
-  "available": true,
-  "short_desc": "A file list program supporting multiple storage options.",
-  "author": "Your Name",
-  "port": 5244,
-  "categories": [
-    "utilities"
-  ],
-  "description": "AList provides an alternative for netdisk based on accessibility and drive letters, with web-based access.",
-  "tipi_version": 2,
-  "version": "latest",
-  "source": "https://github.com/Xhofe/alist",
-  "website": "https://alist.nn.ci/",
-  "exposable": true,
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ],
-  "created_at": 1743095880000,
-  "updated_at": 1743095880000,
-  "dynamic_config": true,
-  "form_fields": [
+  "app": {
+    "name": "Alist",
+    "description": "A file list program that supports multiple storage systems (e.g., Google Drive, OneDrive, S3, FTP, WebDAV).",
+    "developer": "Xhofe",
+    "icon": "alist.png",
+    "category": "Tools",
+    "supported_architectures": [
+      "amd64",
+      "arm64"
+    ]
+  },
+  "ports": {
+    "main": {
+      "host": 5244,
+      "container": 5244,
+      "protocol": "tcp"
+    }
+  },
+  "volumes": [
     {
-      "type": "password",
-      "label": "Admin Password",
-      "required": false,
-      "env_variable": "ADMIN_PASSWORD",
-      "placeholder": "Leave empty for auto-generated password"
-    },
-    {
-      "type": "number",
-      "label": "PUID (User ID)",
-      "required": false,
-      "env_variable": "PUID",
-      "default": "1000"
-    },
-    {
-      "type": "number",
-      "label": "PGID (Group ID)",
-      "required": false,
-      "env_variable": "PGID",
-      "default": "1000"
+      "container": "/opt/alist/data",
+      "bind": "/root/runtipi/app-data/alist/data"
     }
   ],
-  "$schema": "../app-info-schema.json"
+  "requirements": {
+    "min_docker_version": "20.10.0"
+  },
+  "variables": {
+    "PUID": {
+      "label": "User ID (PUID)",
+      "description": "The User ID (PUID) to run Alist as.",
+      "default": 1000
+    },
+    "PGID": {
+      "label": "Group ID (PGID)",
+      "description": "The Group ID (PGID) to run Alist as.",
+      "default": 1000
+    },
+    "TZ": {
+      "label": "Time Zone",
+      "description": "Set the timezone.",
+      "default": "Etc/UTC"
+    },
+    "ADMIN_PASSWORD": {
+      "label": "Admin Initial Password",
+      "description": "Sets the initial password for the admin user. **Change this immediately after the first login!**",
+      "default": "changeme",
+      "type": "text"
+    }
+  }
 }
