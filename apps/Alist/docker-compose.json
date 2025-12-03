@@ -5,12 +5,12 @@
       "image": "xhofe/alist:latest",
       "container_name": "alist",
       "restart": "unless-stopped",
-      "environment": [
-        "PUID=$PUID",
-        "PGID=$PGID",
-        "TZ=$TZ",
-        "ADMIN_PASSWORD=$ADMIN_PASSWORD"
-      ],
+      "environment": {
+        "PUID": "$PUID",
+        "PGID": "$PGID",
+        "TZ": "$TZ",
+        "ADMIN_PASSWORD": "$ADMIN_PASSWORD"
+      },
       "ports": [
         "5244:5244"
       ],
