@@ -3,8 +3,10 @@
     "name": "Alist",
     "description": "A file list program that supports multiple storage systems (e.g., Google Drive, OneDrive, S3, FTP, WebDAV).",
     "developer": "Xhofe",
-    "icon": "logo.jpg",
+    "icon": "alist.png",
     "category": "Tools",
+    "tagline": "A file list program that supports multiple storage systems.",
+    "official": true,
     "supported_architectures": [
       "amd64",
       "arm64"
