@@ -17,7 +17,7 @@
         }
       ],
       "environment": {
-        "ADMIN_PASSWORD": "",
+        "ADMIN_PASSWORD": "changeme",
         "PUID": "1000",
         "PGID": "1000"
       },
