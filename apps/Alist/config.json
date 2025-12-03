@@ -44,7 +44,7 @@
     },
     "ADMIN_PASSWORD": {
       "label": "Admin Initial Password",
-      "description": "Sets the initial password for the admin user. **Change this immediately after the first login!**",
+      "description": "Sets the initial password for the admin user. Change this immediately after the first login!",
       "default": "changeme",
       "type": "text"
     }
