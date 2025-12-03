@@ -15,7 +15,7 @@
   "source": "https://github.com/Xhofe/alist",
   "services": [
     {
-      "id": "main",
+      "id": "alist",
       "name": "AList Server",
       "port": 5244,
       "description": "Main AList web interface."
