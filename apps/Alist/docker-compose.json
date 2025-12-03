@@ -1,28 +1,22 @@
 {
-  "schemaVersion": 2,
-  "services": [
-    {
-      "name": "alist",
+  "version": "3.8",
+  "services": {
+    "alist": {
       "image": "xhofe/alist:latest",
+      "container_name": "alist",
       "restart": "unless-stopped",
-      "environment": {
-        "PUID": "${PUID}",
-        "PGID": "${PGID}",
-        "UMASK": "022",
-        "ADMIN_PASSWORD": "${ADMIN_PASSWORD}"
-      },
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data",
-          "containerPath": "/opt/alist/data"
-        },
-        {
-          "hostPath": "/runtipi/media",
-          "containerPath": "/www/wwwroot"
-        }
+      "ports": [
+        "5244:5244"
       ],
-      "isMain": true,
-      "internalPort": 5244
+      "volumes": [
+        "./data:/data",
+        "./config:/config"
+      ],
+      "environment": {
+        "ADMIN_PASSWORD": "",
+        "PUID": "1000",
+        "PGID": "1000"
+      }
     }
-  ]
+  }
 }
