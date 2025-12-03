@@ -1,39 +1,39 @@
 {
-  "schemaVersion": 3,
-  "services": [
-    {
-      "name": "alist",
+  "version": "3.8",
+  "services": {
+    "alist": {
       "image": "xhofe/alist:latest",
-      "environment": {
-        "ADMIN_PASSWORD": "changeme",
-        "PUID": "1000",
-        "PGID": "1000"
-      },
-      "internalPort": 5244,
-      "isMain": true,
+      "container_name": "alist",
+      "restart": "unless-stopped",
+      "environment": [
+        "PUID=$PUID",
+        "PGID=$PGID",
+        "TZ=$TZ",
+        "ADMIN_PASSWORD=$ADMIN_PASSWORD"
+      ],
+      "ports": [
+        "5244:5244"
+      ],
       "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/alist",
-          "containerPath": "/data",
-          "readOnly": false,
-          "shared": false,
-          "private": false
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/config/alist",
-          "containerPath": "/config",
-          "readOnly": false,
-          "shared": false,
-          "private": false
-        }
+        "/root/runtipi/app-data/alist/data:/opt/alist/data"
+      ],
+      "networks": [
+        "default"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
       ],
       "healthcheck": {
-        "test": ["CMD", "curl", "-f", "http://localhost:5244"],
+        "test": [
+          "CMD",
+          "curl",
+          "-f",
+          "http://localhost:5244"
+        ],
         "interval": "30s",
         "timeout": "10s",
         "retries": 3
-      },
-      "restart": "unless-stopped"
+      }
     }
-  ]
+  }
 }
