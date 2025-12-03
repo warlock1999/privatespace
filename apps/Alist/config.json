@@ -5,13 +5,13 @@
   "description": "AList provides an alternative for netdisk based on accessibility and drive letters, with web-based access.",
   "author": "Your Name",
   "website": "https://alist.nn.ci/",
-  "min_tipi_version": "3.0.0",
+  "tipi_version": 1,
   "version": "latest",
   "available": true,
   "logo": "logo.png",
   "background": "background.png",
-  "category": "File Management",
-  "tag": "file-manager,storage",
+  "categories": ["file-management"],
+  "tags": ["file-manager", "storage"],
   "source": "https://github.com/Xhofe/alist",
   "services": [
     {
@@ -42,7 +42,7 @@
     {
       "type": "number",
       "label": "PGID (Group ID)",
-      "required": "false",
+      "required": false,
       "default": "1000",
       "env_variable": "PGID",
       "help": "Group ID for file permissions (default: 1000)."
