@@ -1,0 +1,46 @@
+{
+  "id": "alist",
+  "name": "AList",
+  "short_description": "A file list program supporting multiple storage options.",
+  "description": "AList provides an alternative for netdisk based on accessibility and drive letters, with web-based access.",
+  "author": "Your Name",
+  "website": "https://alist.nn.ci/",
+  "min_tipi_version": "3.0.0",
+  "version": "latest",
+  "logo": "logo.png",
+  "background": "background.png",
+  "category": "File Management",
+  "tag": "file-manager,storage",
+  "services": [
+    {
+      "id": "main",
+      "name": "AList Server",
+      "port": 5244,
+      "description": "Main AList web interface."
+    }
+  ],
+  "form_fields": [
+    {
+      "name": "ADMIN_PASSWORD",
+      "label": "Admin Password",
+      "type": "password",
+      "default": "",
+      "help": "Set the admin password (auto-generated if empty). Retrieve via `docker logs <container> | grep password`."
+    },
+    {
+      "name": "PUID",
+      "label": "PUID (User ID)",
+      "type": "number",
+      "default": "1000",
+      "help": "User ID for file permissions (default: 1000)."
+    },
+    {
+      "name": "PGID",
+      "label": "PGID (Group ID)",
+      "type": "number",
+      "default": "1000",
+      "help": "Group ID for file permissions (default: 1000)."
+    }
+  ],
+  "docker-compose-content": "docker-compose.json"
+}
