@@ -4,21 +4,13 @@
     {
       "name": "alist",
       "image": "xhofe/alist:latest",
-      "environment": [
-        {
-          "key": "ADMIN_PASSWORD",
-          "value": "changeme"
-        },
-        {
-          "key": "PUID",
-          "value": "1000"
-        },
-        {
-          "key": "PGID",
-          "value": "1000"
-        }
-      ],
+      "environment": {
+        "ADMIN_PASSWORD": "changeme",
+        "PUID": "1000",
+        "PGID": "1000"
+      },
       "internalPort": 5244,
+      "isMain": true,
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/alist",
@@ -35,12 +27,13 @@
           "private": false
         }
       ],
-      "healthCheck": {
-        "test": "CMD curl -f http://localhost:5244",
+      "healthcheck": {
+        "test": ["CMD", "curl", "-f", "http://localhost:5244"],
         "interval": "30s",
         "timeout": "10s",
         "retries": 3
-      }
+      },
+      "restart": "unless-stopped"
     }
   ]
 }
