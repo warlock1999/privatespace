@@ -3,10 +3,12 @@
     "name": "Alist",
     "description": "A file list program that supports multiple storage systems (e.g., Google Drive, OneDrive, S3, FTP, WebDAV).",
     "developer": "Xhofe",
-    "icon": "alist.png",
+    "icon": "logo.jpg",
     "category": "Tools",
     "tagline": "A file list program that supports multiple storage systems.",
-    "official": true,
+    "official": false,
+    "website": "https://alist.nn.ci/",
+    "notes": "The initial admin password is set to 'changeme'. Please change it immediately after the first login via the web interface.",
     "supported_architectures": [
       "amd64",
       "arm64"
