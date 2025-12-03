@@ -15,9 +15,6 @@
       "volumes": [
         "/root/runtipi/app-data/alist/data:/opt/alist/data"
       ],
-      "security_opt": [
-        "no-new-privileges:true"
-      ],
       "healthcheck": {
         "test": [
           "CMD",
