@@ -29,18 +29,6 @@
     "min_docker_version": "20.10.0"
   },
   "variables": {
-    "PUID": {
-      "label": "User ID (PUID)",
-      "description": "The User ID (PUID) to run Alist as.",
-      "default": 1000,
-      "type": "number"
-    },
-    "PGID": {
-      "label": "Group ID (PGID)",
-      "description": "The Group ID (PGID) to run Alist as.",
-      "default": 1000,
-      "type": "number"
-    },
     "TZ": {
       "label": "Time Zone",
       "description": "Set the timezone.",
