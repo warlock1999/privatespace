@@ -1,16 +1,18 @@
 {
   "id": "alist",
   "name": "AList",
-  "short_description": "A file list program supporting multiple storage options.",
+  "short_desc": "A file list program supporting multiple storage options.",
   "description": "AList provides an alternative for netdisk based on accessibility and drive letters, with web-based access.",
   "author": "Your Name",
   "website": "https://alist.nn.ci/",
   "min_tipi_version": "3.0.0",
   "version": "latest",
+  "available": true,
   "logo": "logo.png",
   "background": "background.png",
   "category": "File Management",
   "tag": "file-manager,storage",
+  "source": "https://github.com/Xhofe/alist",
   "services": [
     {
       "id": "main",
@@ -19,28 +21,31 @@
       "description": "Main AList web interface."
     }
   ],
+  "dynamic_config": true,
   "form_fields": [
     {
-      "name": "ADMIN_PASSWORD",
-      "label": "Admin Password",
       "type": "password",
+      "label": "Admin Password",
+      "required": false,
       "default": "",
+      "env_variable": "ADMIN_PASSWORD",
       "help": "Set the admin password (auto-generated if empty). Retrieve via `docker logs <container> | grep password`."
     },
     {
-      "name": "PUID",
-      "label": "PUID (User ID)",
       "type": "number",
+      "label": "PUID (User ID)",
+      "required": false,
       "default": "1000",
+      "env_variable": "PUID",
       "help": "User ID for file permissions (default: 1000)."
     },
     {
-      "name": "PGID",
-      "label": "PGID (Group ID)",
       "type": "number",
+      "label": "PGID (Group ID)",
+      "required": "false",
       "default": "1000",
+      "env_variable": "PGID",
       "help": "Group ID for file permissions (default: 1000)."
     }
-  ],
-  "docker-compose-content": "docker-compose.json"
+  ]
 }

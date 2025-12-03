@@ -5,57 +5,24 @@
       "name": "alist",
       "image": "xhofe/alist:latest",
       "restart": "unless-stopped",
-      "environment": [
-        {
-          "key": "PUID",
-          "value": "${PUID}"
-        },
-        {
-          "key": "PGID",
-          "value": "${PGID}"
-        },
-        {
-          "key": "UMASK",
-          "value": "022"
-        },
-        {
-          "key": "ADMIN_PASSWORD",
-          "value": "${ADMIN_PASSWORD}"
-        }
-      ],
+      "environment": {
+        "PUID": "${PUID}",
+        "PGID": "${PGID}",
+        "UMASK": "022",
+        "ADMIN_PASSWORD": "${ADMIN_PASSWORD}"
+      },
       "volumes": [
         {
-          "host_path": "/runtipi/app-data/alist/data",
-          "container_path": "/opt/alist/data"
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/opt/alist/data"
         },
         {
-          "host_path": "/runtipi/media",
-          "container_path": "/www/wwwroot"
+          "hostPath": "/runtipi/media",
+          "containerPath": "/www/wwwroot"
         }
       ],
-      "labels": [
-        {
-          "key": "traefik.enable",
-          "value": "true"
-        },
-        {
-          "key": "traefik.http.routers.alist.rule",
-          "value": "Host(`{{APP_DOMAIN}}`)"
-        },
-        {
-          "key": "traefik.http.routers.alist.entrypoints",
-          "value": "websecure"
-        },
-        {
-          "key": "traefik.http.routers.alist.tls.certresolver",
-          "value": "myresolver"
-        },
-        {
-          "key": "traefik.http.services.alist.loadbalancer.server.port",
-          "value": "5244"
-        }
-      ],
-      "port": 5244
+      "isMain": true,
+      "internalPort": 5244
     }
   ]
 }
