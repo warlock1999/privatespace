@@ -10,7 +10,7 @@
   "available": true,
   "logo": "logo.png",
   "background": "background.png",
-  "categories": ["file-management"],
+  "categories": ["utilities"],
   "tags": ["file-manager", "storage"],
   "source": "https://github.com/Xhofe/alist",
   "services": [

@@ -1,22 +1,17 @@
 {
   "version": "3.8",
-  "services": {
-    "alist": {
+  "services": [
+    {
+      "name": "alist",
       "image": "xhofe/alist:latest",
-      "container_name": "alist",
       "restart": "unless-stopped",
-      "ports": [
-        "5244:5244"
-      ],
-      "volumes": [
-        "./data:/data",
-        "./config:/config"
-      ],
+      "ports": ["5244:5244"],
+      "volumes": ["./data:/data", "./config:/config"],
       "environment": {
         "ADMIN_PASSWORD": "",
         "PUID": "1000",
         "PGID": "1000"
       }
     }
-  }
+  ]
 }
