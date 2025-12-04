@@ -1,31 +1,23 @@
 {
-  "version": "3.8",
-  "services": {
-    "alist": {
+  "schemaVersion": 2,
+  "services": [
+    {
+      "name": "alist",
       "image": "xhofe/alist:latest",
-      "container_name": "alist",
-      "restart": "unless-stopped",
-      "environment": {
-        "TZ": "$TZ",
-        "ADMIN_PASSWORD": "$ADMIN_PASSWORD"
-      },
-      "ports": [
-        "5244:5244"
-      ],
+      "restart": "always",
+      "isMain": true,
+      "internalPort": 5244,
       "volumes": [
-        "/root/runtipi/app-data/alist/data:/opt/alist/data"
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/opt/alist/data"
+        }
       ],
-      "healthcheck": {
-        "test": [
-          "CMD",
-          "curl",
-          "-f",
-          "http://localhost:5244"
-        ],
-        "interval": "30s",
-        "timeout": "10s",
-        "retries": 3
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "UMASK": "022"
       }
     }
-  }
+  ]
 }
