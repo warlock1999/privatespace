@@ -1,50 +1,13 @@
 {
-  "app": {
-    "name": "Alist",
-    "description": "A file list program that supports multiple storage systems (e.g., Google Drive, OneDrive, S3, FTP, WebDAV).",
-    "developer": "Xhofe",
-    "icon": "alist.png",
-    "category": "Tools",
-    "tagline": "A file list program that supports multiple storage systems.",
-    "website": "https://alist.nn.ci/",
-    "notes": "The initial admin password is set to 'changeme'. Please change it immediately after the first login via the web interface.",
-    "official": false,
-    "supported_architectures": [
-      "amd64",
-      "arm64"
-    ]
-  },
-  "id": "Alist",
-  "version": "3.36.0",
-  "min_tipi_version": "0.1.0",
-  "ports": {
-    "main": {
-      "host": 5244,
-      "container": 5244,
-      "protocol": "tcp"
-    }
-  },
-  "volumes": [
-    {
-      "container": "/opt/alist/data",
-      "bind": "/root/runtipi/app-data/alist/data"
-    }
-  ],
-  "requirements": {
-    "min_docker_version": "20.10.0"
-  },
-  "variables": {
-    "TZ": {
-      "label": "Time Zone",
-      "description": "Set the timezone.",
-      "default": "Etc/UTC",
-      "type": "text"
-    },
-    "ADMIN_PASSWORD": {
-      "label": "Admin Initial Password",
-      "description": "Sets the initial password for the admin user. Change this immediately after the first login!",
-      "default": "changeme",
-      "type": "text"
-    }
-  }
+  "name": "Alist",
+  "id": "alist",
+  "port": 5244,
+  "version": "latest",
+  "category": "utilities",
+  "short_description": "A file list program that supports multiple storage backends.",
+  "description": "A file list program that supports multiple storage backends. It supports local storage, AliCloud, OneDrive, Google Drive, and many more.",
+  "author": "warlock1999",
+  "source": "https://github.com/alist-org/alist",
+  "dynamic_config": true,
+  "form_fields": []
 }
