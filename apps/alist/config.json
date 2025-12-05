@@ -1,11 +1,11 @@
 {
-  "name": "alist",
+  "name": "Alist",
   "id": "alist",
   "port": 5244,
   "version": "latest",
   "category": "utilities",
   "short_description": "A file list program that supports multiple storage backends.",
-  "description": "A file list program that supports multiple storage backends.",
+  "description": "A file list program that supports multiple storage backends. It supports local storage, AliCloud, OneDrive, Google Drive, and many more.",
   "author": "warlock1999",
   "source": "https://github.com/alist-org/alist",
   "dynamic_config": true,

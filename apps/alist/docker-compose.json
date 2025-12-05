@@ -4,7 +4,7 @@
     {
       "name": "alist",
       "image": "xhofe/alist:latest",
-      "restart": "always",
+      "restart": "unless-stopped",
       "isMain": true,
       "internalPort": 5244,
       "volumes": [
