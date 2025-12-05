@@ -13,11 +13,11 @@
           "containerPath": "/opt/alist/data"
         }
       ],
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "UMASK": "022"
-      }
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "UMASK=022"
+      ]
     }
   ]
 }
