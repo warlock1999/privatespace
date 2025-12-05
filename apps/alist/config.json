@@ -1,0 +1,26 @@
+{
+  "name": "Alist",
+  "id": "alist",
+  "available": true,
+  "short_desc": "A file list program that supports multiple storage backends.",
+  "author": "warlock1999",
+  "port": 5244,
+  "categories": [
+    "utilities"
+  ],
+  "description": "A file list program that supports multiple storage backends. It supports local storage, AliCloud, OneDrive, Google Drive, and many more.",
+  "tipi_version": 2,
+  "version": "latest",
+  "source": "https://github.com/alist-org/alist",
+  "website": "https://alist.nn.ci",
+  "exposable": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1743095880000,
+  "updated_at": 1743095880000,
+  "dynamic_config": true,
+  "form_fields": [],
+  "$schema": "../app-info-schema.json"
+}
