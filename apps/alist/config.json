@@ -1,26 +1,43 @@
 {
-  "name": "Alist",
+{
   "id": "alist",
-  "available": true,
-  "short_desc": "A file list program that supports multiple storage backends.",
+  "name": "AList",
+  "short_desc": "A file list program supporting multiple storage options.",
+  "description": "AList provides an alternative for netdisk based on accessibility and drive letters, with web-based access.",
   "author": "warlock1999",
-  "port": 5244,
-  "categories": [
-    "utilities"
-  ],
-  "description": "A file list program that supports multiple storage backends. It supports local storage, AliCloud, OneDrive, Google Drive, and many more.",
+  "website": "https://alist.nn.ci/",
   "tipi_version": 2,
   "version": "latest",
-  "source": "https://github.com/alist-org/alist",
-  "website": "https://alist.nn.ci",
-  "exposable": true,
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ],
-  "created_at": 1743095880000,
-  "updated_at": 1743095880000,
+  "available": true,
+  "logo": "logo.jpg",
+  "categories": ["utilities"],
+  "tags": ["file-manager", "storage"],
+  "source": "https://github.com/Xhofe/alist",
   "dynamic_config": true,
-  "form_fields": [],
-  "$schema": "../app-info-schema.json"
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Admin Password",
+      "required": false,
+      "default": "",
+      "env_variable": "ADMIN_PASSWORD",
+      "help": "Set the admin password (auto-generated if empty). Retrieve via `docker logs <container> | grep password`."
+    },
+    {
+      "type": "number",
+      "label": "PUID (User ID)",
+      "required": false,
+      "default": "1000",
+      "env_variable": "PUID",
+      "help": "User ID for file permissions (default: 1000)."
+    },
+    {
+      "type": "number",
+      "label": "PGID (Group ID)",
+      "required": false,
+      "default": "1000",
+      "env_variable": "PGID",
+      "help": "Group ID for file permissions (default: 1000)."
+    }
+  ]
 }
