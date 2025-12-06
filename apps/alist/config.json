@@ -1,5 +1,4 @@
 {
-{
   "id": "alist",
   "name": "AList",
   "short_desc": "A file list program supporting multiple storage options.",
@@ -21,7 +20,7 @@
       "required": false,
       "default": "",
       "env_variable": "ADMIN_PASSWORD",
-      "help": "Set the admin password (auto-generated if empty). Retrieve via `docker logs <container> | grep password`."
+      "help": "Set the admin password."
     },
     {
       "type": "number",
@@ -29,7 +28,7 @@
       "required": false,
       "default": "1000",
       "env_variable": "PUID",
-      "help": "User ID for file permissions (default: 1000)."
+      "help": "User ID for file permissions."
     },
     {
       "type": "number",
@@ -37,7 +36,7 @@
       "required": false,
       "default": "1000",
       "env_variable": "PGID",
-      "help": "Group ID for file permissions (default: 1000)."
+      "help": "Group ID for file permissions."
     }
   ]
 }

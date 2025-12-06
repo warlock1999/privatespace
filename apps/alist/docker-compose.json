@@ -6,28 +6,13 @@
       "image": "xhofe/alist:latest",
       "isMain": true,
       "internalPort": "5244",
-      "environment": [
-        {
-          "key": "PUID",
-          "value": "1000"
-        },
-        {
-          "key": "PGID",
-          "value": "1000"
-        },
-        {
-          "key": "UMASK",
-          "value": "022"
-        },
-        {
-          "key": "ADMIN_PASSWORD",
-          "value": "changeme"
-        },
-        {
-          "key": "ADMIN_USER",
-          "value": "admin"
-        }
-      ],
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "UMASK": "022",
+        "ADMIN_PASSWORD": "changeme",
+        "ADMIN_USER": "admin"
+      },
       "volumes": [
         {
           "containerPath": "/opt/alist/data",
